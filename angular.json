@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "tetris"
+    }
+  },
+  "defaultProject": "tetris",
+  "cli": {
+    "analytics": "a5a66839-37c4-4166-b397-3a2fa00b9ab4"
+  }
 }
