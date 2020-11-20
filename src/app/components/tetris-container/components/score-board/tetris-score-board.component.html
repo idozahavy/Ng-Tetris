@@ -1,0 +1,22 @@
+<div>
+  <div id="UserGameScoreBoard">
+    <p class="GameScoreText">Game Score:</p>
+    <p class="GameScore">{{ getGameScore() }}</p>
+  </div>
+  <div id="ScoreBoard">
+    <table class="ScoreBoard">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of getHighScores()">
+          <td>{{ item.name }}</td>
+          <td>{{ item.points }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

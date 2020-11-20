@@ -3,20 +3,17 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TetrisBoardComponent } from './components/tetris-board/tetris-board.component';
-import { TetrisBlockComponent } from './components/tetris-block/tetris-block.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TetrisContainerComponent } from './components/tetris-container/tetris-container.component';
+import { TetrisBoardComponent } from './components/tetris-container/components/tetris-board/tetris-board.component';
+import { TetrisScoreBoardComponent } from './components/tetris-container/components/score-board/tetris-score-board.component';
+import { TetrisBlockComponent } from './components/tetris-container/components/tetris-block/tetris-block.component';
+import { NextPatternBoardComponent } from './components/tetris-container/components/next-pattern-board/next-pattern-board.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TetrisBoardComponent,
-    TetrisBlockComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  declarations: [AppComponent, TetrisBoardComponent, TetrisBlockComponent, TetrisContainerComponent, TetrisScoreBoardComponent, NextPatternBoardComponent],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

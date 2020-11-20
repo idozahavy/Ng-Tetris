@@ -1,0 +1,30 @@
+.flex{
+	display: flex;
+	margin: auto;
+	width: max-content;
+}
+
+tr {
+	vertical-align: baseline;
+}
+
+button {
+	--block-size: calc(min(6.3vh, calc(6.25vw - 6.75px)) - 2px);
+	width: calc((var(--block-size) + 2px) * 5);
+	font-size: var(--block-size);
+	margin-top: var(--block-size);
+}
+
+.rightTd{
+	--block-size: calc(min(6.3vh, calc(6.25vw - 6.75px)) - 2px);
+	width: 200px;
+	height: calc(var(--block-size) * 16);
+	display: block;
+	overflow: auto;
+}
+
+.whiteText {
+	color: white;
+	--block-size: calc(min(6.3vh, calc(6.25vw - 6.75px)) - 2px);
+	font-size: calc(var(--block-size) * 0.35);
+}

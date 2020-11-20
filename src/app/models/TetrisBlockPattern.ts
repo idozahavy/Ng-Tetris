@@ -1,15 +1,14 @@
-import { newArray } from '@angular/compiler/src/util';
-import { of } from 'rxjs';
 import { Position } from './Position';
 import { TetrisPattern } from './TetrisPattern';
 
-export class TetrisBlockPattern {
-  private rotation: number = Math.floor(Math.random() * 4);
+export class TetrisBlockPattern extends TetrisPattern {
+  public rotation: number;
+  public position: Position;
 
-  constructor(public pattern: TetrisPattern, public position?: Position) {
-    if (!position){
-      this.position = new Position(0,0);
-    }
+  constructor(pattern: TetrisPattern, position?: Position, rotation?: number) {
+    super(pattern.color, pattern.pattern);
+    this.position = position ? position : new Position(0, 0);
+    this.rotation = rotation ? rotation : Math.floor(Math.random() * 4);
   }
 
   rotateClockwise(): void {
@@ -17,10 +16,11 @@ export class TetrisBlockPattern {
   }
   rotateCounterClockwise(): void {
     this.rotation = (this.rotation - 1) % 4;
+    if (this.rotation < 0) this.rotation += 4;
   }
 
   getBlockPlacements(): Position[] {
-    const pat = this.pattern.pattern;
+    const pat = this.pattern;
     const pos = this.position;
     let placements: Position[] = new Array(pat.length);
 
@@ -30,7 +30,7 @@ export class TetrisBlockPattern {
       offset = Object.assign(pat[i]);
       rot = 0;
       while (rot++ < this.rotation) {
-        offset = new Position(offset.y, -offset.x);
+        offset = new Position(-offset.y, offset.x);
       }
       placements[i] = new Position(pos.x + offset.x, pos.y + offset.y);
     }
@@ -38,9 +38,14 @@ export class TetrisBlockPattern {
   }
 
   minY(): number {
-    return this.getBlockPlacements().reduce(
-      (pre, cur) => new Position(0, Math.min(pre.y, cur.y)),
-      new Position(0, 5)
-    ).y;
+    const pos = this.position;
+    this.position = new Position(0, 0);
+
+    const result = this.getBlockPlacements().reduce((pre, cur) => {
+      pre.y = Math.min(pre.y, cur.y);
+      return pre;
+    }, new Position(0, 5));
+    this.position = pos;
+    return result.y;
   }
 }

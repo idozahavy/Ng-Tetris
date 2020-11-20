@@ -1,0 +1,10 @@
+div {
+  --block-size: calc(min(6.2vh, calc(6.25vw - 6.75px)) - 2px);
+  border: 1px solid black;
+  width: var(--block-size);
+  height: var(--block-size);
+}
+
+.emf {
+  box-shadow: 0px 0px 0.2px 3px darkgreen;
+}

@@ -1,0 +1,43 @@
+5x5 board for next pattern 
+left of the board 
+above the start game button
+
+choose difficulty, can't change will playing
+bellow start game button
+---
+up arrow button
+diff number
+down arrow button
+
+modes (ultimate)
+bellow difficulty
+
+custom keys
+settings button opens popup for setting custom keys
+
+[x] - Completed - maybe when pressing down, it would end the block
+
+header , footer
+Tetris text header
+My details in footer
+
+replace patterns
+
+?color switch?
+in the settings popup
+
+?power ups?
+
+
+window.ultimate = "Ultimate Tetris"
+
+
+instructions:
+gets faster every line removal(speed increases only by one), 
+raising the difficulty level increases both the speed increments and max speed,
+first line = 20 points
+after the first line there is a bonus of 10 points more than the previous
+3 lines = 20 + (20 + 10) + ((20 + 10) + 10)
+points for tetris(4 lines) = 140
+e.g: tetris makes only one speed increment.
+

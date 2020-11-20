@@ -2,7 +2,7 @@
   <div id="row" *ngFor="let y of getYIndices()">
     <app-tetris-block
       *ngFor="let x of getXIndices()"
-      [block]="tetrisBoard.get(x, y)"
+      [block]="board.get(x, y)"
     ></app-tetris-block>
   </div>
 </div>

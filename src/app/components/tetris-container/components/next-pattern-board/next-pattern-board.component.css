@@ -1,0 +1,7 @@
+div {
+  line-height: 0;
+}
+
+app-tetris-block {
+  display: inline-block;
+}
