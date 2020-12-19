@@ -1,6 +1,6 @@
 # Ng-Tetris
 
-Currently running on heroku server, compatible only on pc with a keybaord
+[Currently running on heroku server, compatible only on pc with a keybaord](https://ido-tetris.herokuapp.com/)
 
 # Angular
 
