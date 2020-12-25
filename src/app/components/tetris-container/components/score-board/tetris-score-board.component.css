@@ -3,8 +3,13 @@
   src: url("../../../../../assets/fonts/vp-pixel/VP_Pixel_Simplified-Font_by_VP_Pixel/VPPixel-Simplified.otf");
 }
 
+
 div{
 	background-color: white;
+}
+
+.user-score-board{
+  color: black;
 }
 
 .GameScore{

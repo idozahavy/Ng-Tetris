@@ -1,49 +1,88 @@
-<div ngClass="flex">
-  <table>
-    <tr>
-      <td>
-        <app-next-pattern-board></app-next-pattern-board>
-        <button type="button" (click)="startGame()">Start Game</button>
-        <br>
+<div class="container" (touchstart)="touchStart = $event" (touchend)="touchEnd($event)">
+  <div class="left-container">
+    <app-next-pattern-board class="next-pattern"></app-next-pattern-board>
+    <button type="button" class="start" (click)="startGame()">
+      Start Game
+    </button>
+    <div class="left-controls">
+      <h2>Keys</h2>
+      <div class="flex">
+        <div class="block mx-auto" (click)="moveLeft()">
+          <img src="../../../assets/images/block.png"  />
+          <div class="top-centered-text">Left</div>
+          <div class="centered-text">A</div>
+        </div>
+        <div class="block mx-auto" (click)="rotate()">
+          <img src="../../../assets/images/block.png" />
+          <div class="top-centered-text">Rotate</div>
+          <div class="centered-text">K</div>
+        </div>
+        <div class="block mx-auto" (click)="moveRight()">
+          <img src="../../../assets/images/block.png"  />
+          <div class="top-centered-text">Right</div>
+          <div class="centered-text">D</div>
+        </div>
+      </div>
+      <div class="block mx-auto" style="width: 40%;" (click)="moveDown()">
+        <img src="../../../assets/images/block.png" />
+        <div class="top-centered-text">Down</div>
+        <div class="centered-text">S</div>
+      </div>
+    </div>
+  </div>
 
-        <div class="whiteText">
-          <h2>Keys</h2>
+  <div class="middle-container">
+    <app-tetris-board></app-tetris-board>
+  </div>
+
+  <div class="right-container">
+    <app-tetris-score-board></app-tetris-score-board>
+    <div>
+      <h3>instructions:</h3>
+      <ul>
+        <li>
+          Each time a pattern is placed and it completes a row,<br />
+          the speed is increased (2/3/4 completed rows = 1 speed increases)
+        </li>
+        <!-- <li>
+                raising the difficulty level increases both the speed increments
+                and max speed
+              </li> -->
+        <li>
+          <h4>score points every line completed with a pattern:</h4>
           <ul>
-            <li>a = Left</li>
-            <li>d = Right</li>
-            <li>s = Down</li>
-            <li>k = Rotate</li>
+            <li>1 line = 20</li>
+            <li>2 lines = 50</li>
+            <li>3 lines = 90</li>
+            <li>4 lines = 140</li>
           </ul>
-        </div>
-      </td>
-      <td>
-        <app-tetris-board></app-tetris-board>
-      </td>
-      <td class="rightTd">
-        <app-tetris-score-board></app-tetris-score-board>
-        <div class="whiteText">
-          <h3>instructions:</h3>
-          <ul>
-            <li>
-              Each time a pattern is placed and it completes a row,<br />
-              the speed is increased (2/3/4 completed rows = 1 speed increases)
-            </li>
-            <!-- <li>
-              raising the difficulty level increases both the speed increments
-              and max speed
-            </li> -->
-            <li>
-              <h4>score points every line completed with a pattern:</h4>
-              <ul>
-                <li>1 line = 20</li>
-                <li>2 lines = 50</li>
-                <li>3 lines = 90</li>
-                <li>4 lines = 140</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </td>
-    </tr>
-  </table>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-controls">
+  <div class="flex">
+    <div class="block mx-auto" (click)="moveLeft()">
+      <img src="../../../assets/images/block.png" />
+      <div class="top-centered-text">Swipe Left</div>
+      <div class="centered-text">Left</div>
+    </div>
+    <div class="block mx-auto" (click)="moveRight()">
+      <img src="../../../assets/images/block.png" />
+      <div class="top-centered-text">Swipe Right</div>
+      <div class="centered-text">Right</div>
+    </div>
+    <div class="block mx-auto" (click)="rotate()">
+      <img src="../../../assets/images/block.png" />
+      <div class="top-centered-text">Swipe Up</div>
+      <div class="centered-text">Rotate</div>
+    </div>
+    <div class="block mx-auto block-right" (click)="moveDown()">
+      <img src="../../../assets/images/block.png" />
+      <div class="top-centered-text">Swipe Down</div>
+      <div class="centered-text">Down</div>
+    </div>
+  </div>
 </div>

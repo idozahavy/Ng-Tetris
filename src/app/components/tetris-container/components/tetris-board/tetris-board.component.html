@@ -1,8 +1,9 @@
- <div>
-  <div id="row" *ngFor="let y of getYIndices()">
+<div class="wh-100">
+  <div id="row" class="no-wrap" *ngFor="let y of getYIndices()">
     <app-tetris-block
       *ngFor="let x of getXIndices()"
       [block]="board.get(x, y)"
+      class="block"
     ></app-tetris-block>
   </div>
 </div>

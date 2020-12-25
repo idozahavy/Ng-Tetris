@@ -107,33 +107,16 @@ export class TetrisBoardComponent implements OnInit {
     if (!this.game.playing) return;
     switch (event.code) {
       case 'KeyA':
-        // console.log('left key');
-        this.movePattern(-1, 0);
+        this.keyLeftPress();
         break;
       case 'KeyD':
-        // console.log('right key');
-        this.movePattern(1, 0);
+        this.keyRightPress();
         break;
       case 'KeyS':
-        // console.log('down key');
-        if (!this.movePattern(0, 1)) {
-          this.movePattern(0, 0, false);
-          this.newPattern();
-        } else {
-          this.stopDownInterval();
-          this.startDownInterval();
-        }
+        this.keyDownPress();
         break;
       case 'KeyK':
-      // case 'Space':
-        // console.log('rotate key');
-        this.pattern.rotateClockwise();
-        if (!this.board.canPlace(this.pattern)) {
-          this.pattern.rotateCounterClockwise();
-          return;
-        }
-        this.board.resetTemps();
-        this.board.placePattern(this.pattern, true);
+        this.keyRotatePress();
         break;
     }
     // console.log(event.code);
@@ -155,5 +138,37 @@ export class TetrisBoardComponent implements OnInit {
       th.movePattern(0, 0, false);
       th.newPattern();
     }
+  }
+
+  public keyDownPress() {
+    // console.log('down key');
+    if (!this.movePattern(0, 1)) {
+      this.movePattern(0, 0, false);
+      this.newPattern();
+    } else {
+      this.stopDownInterval();
+      this.startDownInterval();
+    }
+  }
+
+  public keyRotatePress() {
+    // console.log('rotate key');
+    this.pattern.rotateClockwise();
+    if (!this.board.canPlace(this.pattern)) {
+      this.pattern.rotateCounterClockwise();
+      return;
+    }
+    this.board.resetTemps();
+    this.board.placePattern(this.pattern, true);
+  }
+
+  public keyLeftPress() {
+    // console.log('left key');
+    this.movePattern(-1, 0);
+  }
+
+  public keyRightPress() {
+    // console.log('right key');
+    this.movePattern(1, 0);
   }
 }

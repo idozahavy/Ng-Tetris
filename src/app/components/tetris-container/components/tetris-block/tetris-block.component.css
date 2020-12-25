@@ -1,10 +1,9 @@
-div {
-  --block-size: calc(min(6.2vh, calc(6.25vw - 6.75px)) - 2px);
+.tetris-block {
   border: 1px solid black;
-  width: var(--block-size);
-  height: var(--block-size);
+  width: 100%;
+  padding-top: 100%;
 }
 
 .emf {
-  box-shadow: 0px 0px 0.2px 3px darkgreen;
+  box-shadow: 0px 0px 1rem -0.3rem yellow;
 }

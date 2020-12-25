@@ -9,9 +9,18 @@ import { TetrisBoardComponent } from './components/tetris-container/components/t
 import { TetrisScoreBoardComponent } from './components/tetris-container/components/score-board/tetris-score-board.component';
 import { TetrisBlockComponent } from './components/tetris-container/components/tetris-block/tetris-block.component';
 import { NextPatternBoardComponent } from './components/tetris-container/components/next-pattern-board/next-pattern-board.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, TetrisBoardComponent, TetrisBlockComponent, TetrisContainerComponent, TetrisScoreBoardComponent, NextPatternBoardComponent],
+  declarations: [
+    AppComponent,
+    TetrisBoardComponent,
+    TetrisBlockComponent,
+    TetrisContainerComponent,
+    TetrisScoreBoardComponent,
+    NextPatternBoardComponent,
+    FooterComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
