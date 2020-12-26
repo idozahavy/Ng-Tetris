@@ -1,7 +1,7 @@
 <div class="container" (touchstart)="touchStart = $event" (touchend)="touchEnd($event)">
   <div class="left-container">
     <app-next-pattern-board class="next-pattern"></app-next-pattern-board>
-    <button type="button" class="start" (click)="startGame()">
+    <button type="button" class="btn start" (click)="startGame()">
       Start Game
     </button>
     <div class="left-controls">
@@ -29,6 +29,18 @@
         <div class="centered-text">S</div>
       </div>
     </div>
+
+    <div class="left-score">
+      <button type="button" class="btn" (click)="left_score.setVisibility(true)">Show scores</button>
+      <app-modal #left_score>
+        <app-tetris-score-board></app-tetris-score-board>
+      </app-modal>
+      <button type="button" class="btn" (click)="instructions.setVisibility(true)">
+        View instructions
+      </button>
+    </div>
+
+    
   </div>
 
   <div class="middle-container">
@@ -37,28 +49,9 @@
 
   <div class="right-container">
     <app-tetris-score-board></app-tetris-score-board>
-    <div>
-      <h3>instructions:</h3>
-      <ul>
-        <li>
-          Each time a pattern is placed and it completes a row,<br />
-          the speed is increased (2/3/4 completed rows = 1 speed increases)
-        </li>
-        <!-- <li>
-                raising the difficulty level increases both the speed increments
-                and max speed
-              </li> -->
-        <li>
-          <h4>score points every line completed with a pattern:</h4>
-          <ul>
-            <li>1 line = 20</li>
-            <li>2 lines = 50</li>
-            <li>3 lines = 90</li>
-            <li>4 lines = 140</li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+    <button type="button" class="btn" (click)="instructions.setVisibility(true)">
+      View instructions
+    </button>
   </div>
 </div>
 
@@ -86,3 +79,21 @@
     </div>
   </div>
 </div>
+
+<app-modal #instructions title="Instructions">
+  Each time a pattern is placed and it completes a row,
+  the speed is increases <br/>
+  (2/3/4 completed rows = 1 speed increases)
+<!-- <li>
+      raising the difficulty level increases both the speed increments
+      and max speed
+    </li> -->
+  <h4>You get points for every line completed with a pattern:</h4>
+  <ul>
+    <li>1 line = 20</li>
+    <li>2 lines = 50</li>
+    <li>3 lines = 90</li>
+    <li>4 lines = 140</li>
+  </ul>
+
+</app-modal>

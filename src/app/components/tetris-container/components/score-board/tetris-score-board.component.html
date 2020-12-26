@@ -1,4 +1,4 @@
-<div>
+<div class="bg-white">
   <div id="UserGameScoreBoard" class="user-score-board">
     <p class="GameScoreText">Game Score:</p>
     <p class="GameScore">{{ getGameScore() }}</p>
@@ -13,8 +13,8 @@
       </thead>
       <tbody>
         <tr *ngFor="let item of getHighScores()">
-          <td>{{ item.name }}</td>
-          <td>{{ item.points }}</td>
+          <td><div class="overflow">{{ item.name }}</div></td>
+          <td><div class="overflow">{{ item.points }}</div></td>
         </tr>
       </tbody>
     </table>

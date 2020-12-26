@@ -46,22 +46,22 @@ export class TetrisContainerComponent implements OnInit {
   }
 
   moveLeft() {
-    if (!this.tetrisBoard.pattern) return;
+    if (!this.game.playing) return;
     this.tetrisBoard.keyLeftPress();
   }
 
   rotate() {
-    if (!this.tetrisBoard.pattern) return;
+    if (!this.game.playing) return;
     this.tetrisBoard.keyRotatePress();
   }
 
   moveRight() {
-    if (!this.tetrisBoard.pattern) return;
+    if (!this.game.playing) return;
     this.tetrisBoard.keyRightPress();
   }
 
   moveDown() {
-    if (!this.tetrisBoard.pattern) return;
+    if (!this.game.playing) return;
     this.tetrisBoard.keyDownPress();
   }
 }

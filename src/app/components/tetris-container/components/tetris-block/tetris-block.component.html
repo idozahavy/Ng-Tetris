@@ -1,7 +1,7 @@
 <div
   class="tetris-block"
   [style]="{
-		'background-color': block.color
+		'background': color
   }"
-  [ngClass]="block.user ? 'emf' : ''"
+  [ngClass]="glow ? 'emf' : ''"
 ></div>

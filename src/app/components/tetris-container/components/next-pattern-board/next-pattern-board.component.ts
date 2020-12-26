@@ -16,14 +16,11 @@ export class NextPatternBoardComponent implements OnInit {
   constructor(public game: GameService) {}
 
   ngOnInit(): void {
-    this.game.eventEmitter.on('newPattern', () => {
-      this.pattern = new TetrisBlockPattern(
-        this.game.nextPattern,
-        new Position(2, 2),
-        this.game.nextPattern.rotation
-      );
+    this.game.eventEmitter.on('newPattern', (nextPattern: TetrisBlockPattern) => {
+      this.pattern = nextPattern;
+      this.pattern.position = new Position(2,2);
       this.board.resetTemps();
-      // console.log(this.pattern);
+      console.log("new next pattern",this.pattern);
       this.board.placePattern(this.pattern,true);
     });
   }

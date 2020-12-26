@@ -32,7 +32,7 @@ export class GameService {
     let result = this.nextPattern;
     if (!result) result = new TetrisBlockPattern(getRandomPattern());
     this.nextPattern = new TetrisBlockPattern(getRandomPattern());
-    this.eventEmitter.emit('newPattern');
+    this.eventEmitter.emit('newPattern',this.nextPattern);
     return result;
   }
 
@@ -46,17 +46,18 @@ export class GameService {
     this.nextPattern = null;
   }
 
-  sendScore(name: string, diff: number) {
+  sendScore(name: string) {
     const options = {
       headers: new HttpHeaders().set('x-api-key', this.API_KEY),
     };
-    let score: Score = new Score(name, diff, this.points);
+    let score: Score = new Score(name, this.diff, this.points);
     this.server.post(this.SERVER_URL, score, options).subscribe(
       (res) => {
-        console.log('res', res);
+        this.refreshHighScores();
       },
       (err) => {
-        console.log('err', err);
+        alert('error on sending score');
+        console.error("send score error",err);
       }
     );
   }

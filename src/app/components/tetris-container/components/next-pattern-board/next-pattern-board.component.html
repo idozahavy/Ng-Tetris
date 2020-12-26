@@ -2,7 +2,8 @@
   <div id="row" class="no-wrap" *ngFor="let y of getYIndices()">
     <app-tetris-block
       *ngFor="let x of getXIndices()"
-      [block]="board.get(x, y)"
+      [color]="board.get(x, y).color"
+      [glow]="board.get(x, y).user"
       class="block"
     ></app-tetris-block>
   </div>

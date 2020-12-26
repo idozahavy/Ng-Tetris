@@ -10,6 +10,7 @@ import { TetrisScoreBoardComponent } from './components/tetris-container/compone
 import { TetrisBlockComponent } from './components/tetris-container/components/tetris-block/tetris-block.component';
 import { NextPatternBoardComponent } from './components/tetris-container/components/next-pattern-board/next-pattern-board.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FooterComponent } from './components/footer/footer.component';
     TetrisScoreBoardComponent,
     NextPatternBoardComponent,
     FooterComponent,
+    ModalComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

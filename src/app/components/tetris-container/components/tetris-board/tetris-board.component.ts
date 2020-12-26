@@ -91,10 +91,15 @@ export class TetrisBoardComponent implements OnInit {
     this.stopDownInterval();
     this.checkBoard();
     this.pattern = this.game.getNextPattern();
+    console.log("game new pattern", this.pattern);
+    
     let posY = Math.abs(this.pattern.minY());
     this.pattern.position = new Position(4, posY);
     if (!this.board.canPlace(this.pattern)) {
-      alert('game over');
+      let name = prompt("Game Over - enter your name to show on the scoreboard");
+      if (name){
+        this.game.sendScore(name);
+      }
       this.game.playing = false;
       return;
     }

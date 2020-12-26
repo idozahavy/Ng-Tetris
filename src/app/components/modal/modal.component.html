@@ -1,0 +1,12 @@
+<div class="modal all-screen" [ngClass]="visible ? 'visible' : ''" >
+  <div class="modal-bg all-screen" (click)="setVisibility(false)">
+
+  </div>
+  <div class="modal-body">
+    <h2>{{title}}</h2>
+    <ng-content></ng-content>
+    <div class="text-center">
+      <button type="button" (click)="setVisibility(false)">Close</button>
+    </div>
+  </div>
+</div>
